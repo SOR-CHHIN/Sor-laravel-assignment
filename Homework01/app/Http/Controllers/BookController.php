@@ -60,24 +60,16 @@ class BookController extends Controller
 
 
 
-    public function index()
-    {
-        return response()->json([
-            'message' => "Get book success",
-            'data' => $this->books
-        ], 200);
-        return "Page Not Found";
-    }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(Request $request, int $id)
+    public function create(Request $request)
     {
         return response()->json([
             'message' => 'create successfuly',
             'data' => [
-                'id' => $id,
+                'id' => $request->id,
                 'title' => $request->title,
                 'authorId' => $request->authorId,
                 'isbn' => $request->isbn,
